@@ -44,19 +44,30 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="Telerik.WinControls, Version=2021.1.119.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWF\2021.1.119.40\Telerik.WinControls.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.TelerikMetroBlue, Version=2021.1.119.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.WinControls.UI, Version=2021.1.119.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWF\2021.1.119.40\Telerik.WinControls.UI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="TelerikCommon, Version=2021.1.119.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWF\2021.1.119.40\TelerikCommon.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
+    <Compile Include="TRRFrmPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TRRFrmPrincipal.Designer.cs">
+      <DependentUpon>TRRFrmPrincipal.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -66,6 +77,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="TRRFrmPrincipal.resx">
+      <DependentUpon>TRRFrmPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -78,6 +92,42 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Entidades\Entidades.csproj">
+      <Project>{42c859d3-dffd-44d2-9fcf-003c03e0e2ec}</Project>
+      <Name>Entidades</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Negocio\Negocio.csproj">
+      <Project>{17dce0c7-c523-4568-a275-ea332fc5d284}</Project>
+      <Name>Negocio</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Image\Aceptar.png" />
+    <Content Include="Image\AceptarB.png" />
+    <Content Include="Image\Almacén.png" />
+    <Content Include="Image\Cancelar.png" />
+    <Content Include="Image\CancelarB.png" />
+    <Content Include="Image\Clientes.png" />
+    <Content Include="Image\ClientesB.png" />
+    <Content Include="Image\Consultar.png" />
+    <Content Include="Image\ConsultarB.png" />
+    <Content Include="Image\Excel.png" />
+    <Content Include="Image\ExcelB.png" />
+    <Content Include="Image\Guardar.png" />
+    <Content Include="Image\GuardarB.png" />
+    <Content Include="Image\Impresora.png" />
+    <Content Include="Image\ImpresoraB.png" />
+    <Content Include="Image\IngresarLogin.png" />
+    <Content Include="Image\Login.png" />
+    <Content Include="Image\Paises.png" />
+    <Content Include="Image\PaisesB.png" />
+    <Content Include="Image\Procesar.png" />
+    <Content Include="Image\ProcesarB.png" />
+    <Content Include="Image\Proveedor.png" />
+    <Content Include="Image\ProveedorB.png" />
+    <Content Include="Image\Salir.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

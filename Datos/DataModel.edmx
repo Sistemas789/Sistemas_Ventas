@@ -1,0 +1,444 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="BD_VentasModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Cliente">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="char" MaxLength="6" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="60" />
+          <Property Name="Nombre_Abrev" Type="varchar" MaxLength="15" />
+          <Property Name="Numero_Ruc" Type="varchar" MaxLength="11" />
+          <Property Name="Direccion" Type="varchar" MaxLength="60" />
+          <Property Name="Codigo_Pais" Type="char" MaxLength="3" />
+          <Property Name="Codigo_Ciudad" Type="char" MaxLength="3" />
+          <Property Name="Telefono" Type="varchar" MaxLength="15" />
+          <Property Name="Telefono2" Type="varchar" MaxLength="15" />
+          <Property Name="Referencia" Type="varchar" MaxLength="60" />
+          <Property Name="Email" Type="varchar" MaxLength="60" />
+          <Property Name="Tipo" Type="char" MaxLength="1" />
+          <Property Name="Estado" Type="char" MaxLength="1" />
+          <Property Name="Usuario_Registro" Type="varchar" MaxLength="15" />
+          <Property Name="Fecha_Registro" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Departamentos">
+          <Key>
+            <PropertyRef Name="Codigo" />
+            <PropertyRef Name="Codigo_Pais" />
+          </Key>
+          <Property Name="Codigo" Type="char" MaxLength="3" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="30" />
+          <Property Name="Descripcion_Abrv" Type="char" MaxLength="3" />
+          <Property Name="Codigo_Pais" Type="char" MaxLength="3" Nullable="false" />
+          <Property Name="Estado" Type="char" MaxLength="1" />
+          <Property Name="Usuario_Registro" Type="varchar" MaxLength="15" />
+          <Property Name="Fecha_Registro" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Distrito">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="char" MaxLength="3" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+          <Property Name="Descripcion_Abrv" Type="char" MaxLength="3" />
+          <Property Name="Codigo_Pais" Type="char" MaxLength="3" />
+          <Property Name="Codigo_Departamento" Type="char" MaxLength="3" />
+          <Property Name="Codigo_Provincia" Type="char" MaxLength="3" />
+          <Property Name="Estado" Type="char" MaxLength="1" />
+          <Property Name="Usuario_Registro" Type="varchar" MaxLength="15" />
+          <Property Name="Fecha_Registro" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Paises">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="char" MaxLength="3" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="30" />
+          <Property Name="Descripcion_Abrv" Type="char" MaxLength="3" />
+          <Property Name="Estado" Type="char" MaxLength="1" />
+          <Property Name="Usuario_Registro" Type="varchar" MaxLength="15" />
+          <Property Name="Fecha_Registro" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Proveedor">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="char" MaxLength="6" Nullable="false" />
+          <Property Name="Nombre" Type="char" MaxLength="50" />
+          <Property Name="Nombre_Abrev" Type="char" MaxLength="15" />
+          <Property Name="Numero_Ruc" Type="char" MaxLength="11" />
+          <Property Name="Email" Type="char" MaxLength="50" />
+          <Property Name="Email2" Type="char" MaxLength="50" />
+          <Property Name="Contacto" Type="char" MaxLength="30" />
+          <Property Name="Contacto2" Type="char" MaxLength="30" />
+          <Property Name="Estado" Type="char" MaxLength="1" />
+          <Property Name="Tipo" Type="char" MaxLength="1" />
+          <Property Name="Observacion" Type="char" MaxLength="200" />
+          <Property Name="Direccion" Type="char" MaxLength="100" />
+          <Property Name="Urbanizacion" Type="char" MaxLength="30" />
+          <Property Name="Referencia" Type="char" MaxLength="60" />
+          <Property Name="Codigo_Pais" Type="char" MaxLength="3" />
+          <Property Name="Codigo_Departamento" Type="char" MaxLength="3" />
+          <Property Name="Codigo_Provincia" Type="char" MaxLength="3" />
+          <Property Name="Codigo_Distrito" Type="char" MaxLength="3" />
+          <Property Name="Telefono" Type="char" MaxLength="9" />
+          <Property Name="Telefono2" Type="char" MaxLength="9" />
+          <Property Name="Usuario_Registro" Type="char" MaxLength="15" />
+          <Property Name="Fecha_Registro" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Provincia">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="char" MaxLength="3" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="30" />
+          <Property Name="Descripcion_Abrv" Type="char" MaxLength="3" />
+          <Property Name="Codigo_Pais" Type="char" MaxLength="3" />
+          <Property Name="Codigo_Departamento" Type="char" MaxLength="3" />
+          <Property Name="Estado" Type="char" MaxLength="1" />
+          <Property Name="Usuario_Registro" Type="varchar" MaxLength="15" />
+          <Property Name="Fecha_Registro" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Rol">
+          <Key>
+            <PropertyRef Name="Idrol" />
+          </Key>
+          <Property Name="Idrol" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="char" MaxLength="30" />
+          <Property Name="Descripcion" Type="char" MaxLength="255" />
+          <Property Name="Estado" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="Usuarios">
+          <Key>
+            <PropertyRef Name="IdUsuario" />
+          </Key>
+          <Property Name="IdUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombres" Type="varchar" MaxLength="50" />
+          <Property Name="Apellidos" Type="varchar" MaxLength="60" />
+          <Property Name="Dni" Type="char" MaxLength="8" />
+          <Property Name="Telefono" Type="char" MaxLength="9" />
+          <Property Name="Sexo" Type="char" MaxLength="1" />
+          <Property Name="Usuario" Type="varchar" MaxLength="15" />
+          <Property Name="Clave" Type="varchar" MaxLength="30" />
+          <Property Name="Correo" Type="varchar" MaxLength="50" />
+          <Property Name="Estado" Type="char" MaxLength="1" />
+          <Property Name="Usuario_Registro" Type="varchar" MaxLength="15" />
+          <Property Name="Fecha_Registro" Type="datetime" />
+          <Property Name="IdRol" Type="int" />
+        </EntityType>
+        <EntityContainer Name="BD_VentasModelStoreContainer">
+          <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Departamentos" EntityType="Self.Departamentos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Distrito" EntityType="Self.Distrito" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Paises" EntityType="Self.Paises" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Proveedor" EntityType="Self.Proveedor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Provincia" EntityType="Self.Provincia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rol" EntityType="Self.Rol" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BD_VentasModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Cliente">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="String" MaxLength="6" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="Nombre_Abrev" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Numero_Ruc" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="Direccion" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="Codigo_Pais" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="Codigo_Ciudad" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="Telefono" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Telefono2" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Referencia" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="Tipo" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Estado" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Usuario_Registro" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha_Registro" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Departamentos">
+          <Key>
+            <PropertyRef Name="Codigo" />
+            <PropertyRef Name="Codigo_Pais" />
+          </Key>
+          <Property Name="Codigo" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Descripcion_Abrv" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="Codigo_Pais" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Estado" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Usuario_Registro" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha_Registro" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Distrito">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Descripcion_Abrv" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="Codigo_Pais" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="Codigo_Departamento" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="Codigo_Provincia" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="Estado" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Usuario_Registro" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha_Registro" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Paises">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Descripcion_Abrv" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="Estado" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Usuario_Registro" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha_Registro" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Proveedor">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="String" MaxLength="6" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="Nombre_Abrev" Type="String" MaxLength="15" FixedLength="true" Unicode="false" />
+          <Property Name="Numero_Ruc" Type="String" MaxLength="11" FixedLength="true" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="Email2" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="Contacto" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+          <Property Name="Contacto2" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+          <Property Name="Estado" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Tipo" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Observacion" Type="String" MaxLength="200" FixedLength="true" Unicode="false" />
+          <Property Name="Direccion" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+          <Property Name="Urbanizacion" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+          <Property Name="Referencia" Type="String" MaxLength="60" FixedLength="true" Unicode="false" />
+          <Property Name="Codigo_Pais" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="Codigo_Departamento" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="Codigo_Provincia" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="Codigo_Distrito" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="Telefono" Type="String" MaxLength="9" FixedLength="true" Unicode="false" />
+          <Property Name="Telefono2" Type="String" MaxLength="9" FixedLength="true" Unicode="false" />
+          <Property Name="Usuario_Registro" Type="String" MaxLength="15" FixedLength="true" Unicode="false" />
+          <Property Name="Fecha_Registro" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Provincia">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Descripcion_Abrv" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="Codigo_Pais" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="Codigo_Departamento" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="Estado" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Usuario_Registro" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha_Registro" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Rol">
+          <Key>
+            <PropertyRef Name="Idrol" />
+          </Key>
+          <Property Name="Idrol" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="255" FixedLength="true" Unicode="false" />
+          <Property Name="Estado" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Usuarios">
+          <Key>
+            <PropertyRef Name="IdUsuario" />
+          </Key>
+          <Property Name="IdUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombres" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Apellidos" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="Dni" Type="String" MaxLength="8" FixedLength="true" Unicode="false" />
+          <Property Name="Telefono" Type="String" MaxLength="9" FixedLength="true" Unicode="false" />
+          <Property Name="Sexo" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Usuario" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Clave" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Correo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Estado" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Usuario_Registro" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha_Registro" Type="DateTime" Precision="3" />
+          <Property Name="IdRol" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="BD_VentasEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Cliente" EntityType="Self.Cliente" />
+          <EntitySet Name="Departamentos" EntityType="Self.Departamentos" />
+          <EntitySet Name="Distrito" EntityType="Self.Distrito" />
+          <EntitySet Name="Paises" EntityType="Self.Paises" />
+          <EntitySet Name="Proveedor" EntityType="Self.Proveedor" />
+          <EntitySet Name="Provincia" EntityType="Self.Provincia" />
+          <EntitySet Name="Rol" EntityType="Self.Rol" />
+          <EntitySet Name="Usuarios" EntityType="Self.Usuarios" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BD_VentasModelStoreContainer" CdmEntityContainer="BD_VentasEntities">
+          <EntitySetMapping Name="Cliente">
+            <EntityTypeMapping TypeName="BD_VentasModel.Cliente">
+              <MappingFragment StoreEntitySet="Cliente">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Nombre_Abrev" ColumnName="Nombre_Abrev" />
+                <ScalarProperty Name="Numero_Ruc" ColumnName="Numero_Ruc" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Codigo_Pais" ColumnName="Codigo_Pais" />
+                <ScalarProperty Name="Codigo_Ciudad" ColumnName="Codigo_Ciudad" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Telefono2" ColumnName="Telefono2" />
+                <ScalarProperty Name="Referencia" ColumnName="Referencia" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Usuario_Registro" ColumnName="Usuario_Registro" />
+                <ScalarProperty Name="Fecha_Registro" ColumnName="Fecha_Registro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Departamentos">
+            <EntityTypeMapping TypeName="BD_VentasModel.Departamentos">
+              <MappingFragment StoreEntitySet="Departamentos">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Descripcion_Abrv" ColumnName="Descripcion_Abrv" />
+                <ScalarProperty Name="Codigo_Pais" ColumnName="Codigo_Pais" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Usuario_Registro" ColumnName="Usuario_Registro" />
+                <ScalarProperty Name="Fecha_Registro" ColumnName="Fecha_Registro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Distrito">
+            <EntityTypeMapping TypeName="BD_VentasModel.Distrito">
+              <MappingFragment StoreEntitySet="Distrito">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Descripcion_Abrv" ColumnName="Descripcion_Abrv" />
+                <ScalarProperty Name="Codigo_Pais" ColumnName="Codigo_Pais" />
+                <ScalarProperty Name="Codigo_Departamento" ColumnName="Codigo_Departamento" />
+                <ScalarProperty Name="Codigo_Provincia" ColumnName="Codigo_Provincia" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Usuario_Registro" ColumnName="Usuario_Registro" />
+                <ScalarProperty Name="Fecha_Registro" ColumnName="Fecha_Registro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Paises">
+            <EntityTypeMapping TypeName="BD_VentasModel.Paises">
+              <MappingFragment StoreEntitySet="Paises">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Descripcion_Abrv" ColumnName="Descripcion_Abrv" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Usuario_Registro" ColumnName="Usuario_Registro" />
+                <ScalarProperty Name="Fecha_Registro" ColumnName="Fecha_Registro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Proveedor">
+            <EntityTypeMapping TypeName="BD_VentasModel.Proveedor">
+              <MappingFragment StoreEntitySet="Proveedor">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Nombre_Abrev" ColumnName="Nombre_Abrev" />
+                <ScalarProperty Name="Numero_Ruc" ColumnName="Numero_Ruc" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Email2" ColumnName="Email2" />
+                <ScalarProperty Name="Contacto" ColumnName="Contacto" />
+                <ScalarProperty Name="Contacto2" ColumnName="Contacto2" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Urbanizacion" ColumnName="Urbanizacion" />
+                <ScalarProperty Name="Referencia" ColumnName="Referencia" />
+                <ScalarProperty Name="Codigo_Pais" ColumnName="Codigo_Pais" />
+                <ScalarProperty Name="Codigo_Departamento" ColumnName="Codigo_Departamento" />
+                <ScalarProperty Name="Codigo_Provincia" ColumnName="Codigo_Provincia" />
+                <ScalarProperty Name="Codigo_Distrito" ColumnName="Codigo_Distrito" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Telefono2" ColumnName="Telefono2" />
+                <ScalarProperty Name="Usuario_Registro" ColumnName="Usuario_Registro" />
+                <ScalarProperty Name="Fecha_Registro" ColumnName="Fecha_Registro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Provincia">
+            <EntityTypeMapping TypeName="BD_VentasModel.Provincia">
+              <MappingFragment StoreEntitySet="Provincia">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Descripcion_Abrv" ColumnName="Descripcion_Abrv" />
+                <ScalarProperty Name="Codigo_Pais" ColumnName="Codigo_Pais" />
+                <ScalarProperty Name="Codigo_Departamento" ColumnName="Codigo_Departamento" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Usuario_Registro" ColumnName="Usuario_Registro" />
+                <ScalarProperty Name="Fecha_Registro" ColumnName="Fecha_Registro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rol">
+            <EntityTypeMapping TypeName="BD_VentasModel.Rol">
+              <MappingFragment StoreEntitySet="Rol">
+                <ScalarProperty Name="Idrol" ColumnName="Idrol" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuarios">
+            <EntityTypeMapping TypeName="BD_VentasModel.Usuarios">
+              <MappingFragment StoreEntitySet="Usuarios">
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="Dni" ColumnName="Dni" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+                <ScalarProperty Name="Clave" ColumnName="Clave" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Usuario_Registro" ColumnName="Usuario_Registro" />
+                <ScalarProperty Name="Fecha_Registro" ColumnName="Fecha_Registro" />
+                <ScalarProperty Name="IdRol" ColumnName="IdRol" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
